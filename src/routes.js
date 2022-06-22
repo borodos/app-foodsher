@@ -1,7 +1,7 @@
 import { BasketPage } from "../src/pages/BasketPage";
 import { MainPage } from "../src/pages/MainPage";
 import { ProfilePage } from "../src/pages/ProfilePage";
-import SearchPage from "../src/pages/SearchPage";
+import { SearchPage } from "../src/pages/SearchPage";
 import { AuthPage } from "../src/pages/AuthPage";
 import { UserAnnounsPage } from "../src/pages/UserAnnounsPage";
 import { MessagesPage } from "./pages/MessagesPage";

@@ -25,6 +25,7 @@ export const App = observer(() => {
 		});
 	}, [userStore]);
 
+	console.log("http://localhost:8000/");
 	if (loading) {
 		return (
 			<Spinner
