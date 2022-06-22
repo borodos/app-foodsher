@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import { observer } from "mobx-react-lite";
+import React, { useContext, useEffect, useState } from "react";
+import { Spinner } from "react-bootstrap";
+import { BrowserRouter } from "react-router-dom";
+import { Context } from ".";
+import { Footer } from "./components/Footer";
+import { NavBar } from "./components/NavBar";
+import { check, getUserInfo } from "./http/userAPI";
+import { AppRouter } from "./navigation/AppRouter";
+import "./css/Main.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+export const App = observer(() => {
+	const { userStore } = useContext(Context);
+	const [loading, setLoading] = useState(true);
 
-export default App;
+	useEffect(() => {
+		check()
+			.then((data) => {
+				userStore.setUser(data);
+				userStore.setIsAuth(true);
+			})
+			.finally(() => setLoading(false));
+		getUserInfo().then((data) => {
+			userStore.setUserInfo(data);
+		});
+	}, [userStore]);
+
+	if (loading) {
+		return (
+			<Spinner
+				animation="border"
+				role="status"
+				style={{ position: "fixed", top: "50%", left: "50%" }}
+			>
+				<span className="visually-hidden">Loading...</span>
+			</Spinner>
+		);
+	}
+
+	return (
+		<div className="wrapper">
+			<BrowserRouter>
+				<NavBar />
+				<AppRouter />
+				<Footer />
+			</BrowserRouter>
+		</div>
+	);
+});

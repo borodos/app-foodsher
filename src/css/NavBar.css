@@ -1,0 +1,64 @@
+.link {
+	text-decoration: none;
+	letter-spacing: 1px;
+	color: #ccc;
+}
+
+.link:hover {
+	color: aqua;
+	border-bottom: 1px solid #ccc;
+}
+
+.active {
+	text-decoration: none;
+	letter-spacing: 1px;
+	color: aqua;
+	border-bottom: 1px solid aqua;
+}
+
+.active:hover {
+	color: aqua;
+	border-bottom: 1px solid #ccc;
+}
+
+.nav {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.title {
+	text-decoration: none;
+	color: #fff;
+}
+
+.title:hover {
+	color: aqua;
+}
+
+.text {
+	text-decoration: none;
+	color: #fff;
+	padding: 0.5rem;
+}
+
+.text:hover {
+	color: #000;
+}
+
+.active-profile {
+	text-decoration: none;
+	letter-spacing: 1px;
+	color: rgb(16, 253, 16);
+	border-bottom: 1px solid rgb(16, 253, 16);
+}
+
+.active-profile:hover {
+	color: aqua;
+	border-bottom: 1px solid #ccc;
+}
+
+.basket {
+	background-color: #fff;
+}
