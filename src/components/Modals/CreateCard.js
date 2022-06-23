@@ -71,7 +71,7 @@ function CreateCard({ show, onHide }) {
 						value={nameObject}
 						onChange={(e) => setNameObject(e.target.value)}
 						className="mb-3"
-						placeholder="Название ресторана..."
+						placeholder="Адрес..."
 					/>
 					<Form.Control
 						onChange={(e) => setFile(e.target.files[0])}

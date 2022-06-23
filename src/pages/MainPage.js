@@ -8,15 +8,15 @@ import { announGetAll } from "../http/announApi";
 export const MainPage = observer(() => {
 	const { announStore } = useContext(Context);
 
-	useEffect(() => {
-		announGetAll()
-			.then((data) => {
-				announStore.setAnnouns(data);
-			})
-			.catch((error) => {
-				alert(error.response.data.message);
-			});
-	}, [announStore]);
+	// useEffect(() => {
+	// 	announGetAll()
+	// 		.then((data) => {
+	// 			announStore.setAnnouns(data);
+	// 		})
+	// 		.catch((error) => {
+	// 			alert(error.response.data.message);
+	// 		});
+	// }, [announStore]);
 
 	return (
 		<section className="main-page">

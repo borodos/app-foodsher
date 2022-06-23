@@ -8,9 +8,10 @@ import { NavBar } from "./components/NavBar";
 import { check, getUserInfo } from "./http/userAPI";
 import { AppRouter } from "./navigation/AppRouter";
 import "./css/Main.css";
+import { announGetAll } from "./http/announApi";
 
 export const App = observer(() => {
-	const { userStore } = useContext(Context);
+	const { userStore, announStore } = useContext(Context);
 	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
@@ -24,6 +25,16 @@ export const App = observer(() => {
 			userStore.setUserInfo(data);
 		});
 	}, [userStore]);
+
+	useEffect(() => {
+		announGetAll()
+			.then((data) => {
+				announStore.setAnnouns(data);
+			})
+			.catch((error) => {
+				alert(error.response.data.message);
+			});
+	}, [announStore]);
 
 	console.log("http://localhost:8000/");
 	if (loading) {

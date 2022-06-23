@@ -1,7 +1,8 @@
 import React from "react";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 
-export const Map = () => {
+export const Map = ({ value }) => {
+	console.log("announ: ", value.id);
 	return (
 		<MapContainer
 			style={{ width: "70%", height: "500px" }}
@@ -13,11 +14,11 @@ export const Map = () => {
 				attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 				url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 			/>
-			<Marker position={[47.2192424, 38.9195747]}>
-				<Popup>
-					A pretty CSS3 popup. <br /> Easily customizable.
-				</Popup>
-			</Marker>
+			{value !== "" ? (
+				<Marker position={[47.2192424, 38.9195747]}>
+					<Popup>{value.title}</Popup>
+				</Marker>
+			) : null}
 		</MapContainer>
 	);
 };

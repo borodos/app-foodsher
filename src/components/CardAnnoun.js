@@ -64,7 +64,7 @@ export const CardAnnoun = ({ announInfo }) => {
 							<span>Мобильный телефон: {announInfo.phone}</span>
 						</div>
 						<div className="card-name-object">
-							<span>Название объекта: "{announInfo.nameObject}"</span> &nbsp;
+							<span>Адрес: {announInfo.nameObject}</span> &nbsp;
 						</div>
 					</div>
 					<div className="card-search">
